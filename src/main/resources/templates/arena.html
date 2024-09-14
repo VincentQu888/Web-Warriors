@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/css/shared.css">
+    <link rel="stylesheet" href="/css/arena.css">
+    <script src="/js/arena.js" defer=""></script>
+    
+    <title>Web Warriors</title>
+</head>
+<body>
+    <form th:action="@{/judge}" method="post" id="arena-container">
+        <div>
+            <iframe id="preview"></iframe>
+            <div id="instructions">
+                <span> these are some</span>
+                <button id="submit-button" type="submit">Submit!</button>
+            </div>
+        </div>
+        <div>   
+            <textarea id="userHtml" name="userHtml" placeholder="HTML"></textarea>
+            <textarea id="userCss" name="userCss" placeholder="CSS"></textarea>
+        </div>
+    </form>
+</body>
+</html>

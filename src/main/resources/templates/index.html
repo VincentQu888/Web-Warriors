@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Web Warriors</title>
 </head>
 <body>
-    <h1> testing code to take a screenshot lmao </h1>
-    <form th:action="@{/screenshotter}" method="post">
-        <textarea name="message" rows="10" cols="30">
-        AUTISM ATTACK
-        </textarea>
-        <button type="submit">Take Screenshot</button>
+    <h1> enter text </h1>
+    <form th:action="@{/judge}" method="post">
+        <textarea id="userHtml" name="userHtml" rows="40" cols="70"> type your html here </textarea>
+        <textarea id="userCss" name="userCss" rows="40" cols="70"> type your css here </textarea>
+        <button type="submit">Judge</button>
     </form>
 </body>
 </html>
+

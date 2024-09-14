@@ -1,0 +1,36 @@
+#arena-container{
+    display: flex;
+    height: 100vh;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+#preview{
+    height: 50vh;
+    width: 47.5vw;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+#userHtml{
+    width: 47.5vw;
+    height: 50vh;
+    margin-bottom: 1rem;
+    resize: none;
+}
+
+#userCss{
+    width: 47.5vw;
+    height: 50vh;
+    resize: none;
+}
+
+#instructions{
+    background-color: gray;
+    height: 50vh;
+    width: 47.5vw;
+}
+
+#submit-button{
+    margin-top: 1rem;
+}

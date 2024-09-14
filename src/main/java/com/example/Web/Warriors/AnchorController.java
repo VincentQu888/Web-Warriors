@@ -21,20 +21,14 @@ public class AnchorController {
         return "index";
     }
 
-    @PostMapping("/screenshotter")
-    private String takeScreenshot(Model model) {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\lilli\\Downloads\\Web-Warriors\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-        try {
-            driver.get("http://localhost:8080");
-            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(screenshot, new File("screenshot.png"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            driver.quit();
-        }
-        return "index";
+    @GetMapping("/arena")
+    String arena(Model model){
+        return "arena";
+    }
+
+    @GetMapping("/userinput")
+    String userInput(Model model) {
+        return "userinput";
     }
     
 }
