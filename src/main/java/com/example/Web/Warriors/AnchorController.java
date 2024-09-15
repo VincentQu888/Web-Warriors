@@ -12,19 +12,11 @@ import org.openqa.selenium.TakesScreenshot;
 import java.io.File;
 import org.apache.commons.io.FileUtils;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 
 @Controller
 public class AnchorController {
-
-    @GetMapping("/")
-    String index(Model model){
-        return "index";
-    }
-
-    @GetMapping("/arena")
-    String arena(Model model){
-        return "arena";
-    }
 
     @GetMapping("/userinput")
     String userInput(Model model) {
