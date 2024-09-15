@@ -2,6 +2,7 @@ html{
     scroll-behavior: smooth;
     font-family: 'Satoshi', sans-serif;
     overflow-x: hidden;
-    color: #18191a;
+    color: #fff;
+    font-weight: 500;
 }
 

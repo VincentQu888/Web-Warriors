@@ -3,15 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/shared.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link th:href="@{css/main.css}" rel="stylesheet">
+    <script src="/js/index.js" defer=""></script>
+
+    <link rel="icon" type="image/x-icon" href="/imgs/W.svg">
+
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,301,701,300,501,401,901,400,2&amp;display=swap" rel="stylesheet">
+
     <title>Web Warriors</title>
 </head>
 <body>
-    <h1> enter text </h1>
-    <form th:action="@{/judge}" method="post">
-        <textarea id="userHtml" name="userHtml" rows="40" cols="70"> type your html here </textarea>
-        <textarea id="userCss" name="userCss" rows="40" cols="70"> type your css here </textarea>
-        <button type="submit">Judge</button>
-    </form>
+    <div id="levelNum" class="hidden" th:text="${levelCount}"></div>
+    <nav class="fixed flex w-screen text-xl pt-4 px-32 items-center">
+        <a href="/" class="mr-auto">Home</a>
+        <div sec:authorize="isAuthenticated()" class="ml-auto hover:opacity-75">
+            <form name="logoutForm" th:action="@{/logout}" method="post">
+                <button type="submit">Logout</button>
+            </form>
+        </div>
+        <a href="arena" id="cta-button" class="ml-8">Start &#8594;</a>
+    </nav>
+    <div id="banner" class="-z-10 fixed">
+        <img id="banner-img" src="/imgs/banner.jpg">  
+    </div>
+    <div class="h-screen flex px-32">
+        <div class="self-center">
+            <div sec:authorize="isAuthenticated()">
+                <p class="text-xl mb-8">Welcome back, <span th:text="${profile.get('name')}"></span></p>
+            </div>
+            <p class="text-8xl font-bold mb-4">Web Warriors</p>
+            <p class="text-3xl mb-8">Train to be the <span id="fancy">strongest</span></p>
+            <div id="belt-container" class="p-4">
+                <div class="flex mb-4 items-center">
+                    <p id="rank" class="text-3xl mr-16" th:text="${levelName}"></p> <!--name of rank-->
+                    <form id="line" class="flex items-center"> <!--add bigger circle if on level-->
+                        <button id="circle1" class="circle"></button>
+                        <button id="circle2" class="circle ml-12"></button>
+                        <button id="circle3" class="circle ml-12"></button>
+                        <button id="circle4" class="circle ml-12"></button>
+                        <button id="circle5" class="circle ml-12"></button>
+                        <button id="circle6" class="circle ml-12"></button>
+                    </form>
+                </div>
+                <div> <!--desc of rank-->
+                    <p id="descriptionForRank" class="mb-8"></p>
+                    <a href="arena" id="cta-button-center" class="text-xl">Lets Go! &#8594;</a>
+                </div>
+            </div>
+        </div>
+        <div class="self-center ml-auto mb-16">
+            <div id="screen-border">
+                <img src="imgs/site.png">
+            </div>
+            <div id="monitor-stand"></div>
+            <div id="monitor-base"></div>
+            <div id="block"></div>
+        </div>
+    </div>
 </body>
 </html>
-

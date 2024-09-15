@@ -1,0 +1,108 @@
+html{
+    overflow-y: hidden;
+}
+
+#banner-img{
+    filter: brightness(75%);
+}
+
+#fancy{
+    transition: opacity 0.3s ease-in-out;
+    /* background: linear-gradient(to right, #ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; */
+}
+
+#belt-container{
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 0px 20px 5px rgba(57, 81, 94, 0.36);
+    border-radius: 1rem;
+    height: 15rem;
+    width: min-content;
+}
+
+#line{
+    content: "";
+    height: 0.75rem;
+    width: 21.6rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5rem;
+}
+
+.circle{
+    content: "";
+    height: 1.1rem;
+    width: 1.1rem;
+    background-color: rgba(255, 255, 255);
+    border-radius: 5rem;
+    /* background-color: #fb9c36; */
+}
+
+#cta-button{
+    background-color: rgba(255, 255, 255, 0.2);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 5rem;
+    box-shadow: 0px 0px 20px 5px rgba(57, 81, 94, 0.18);
+}
+
+#cta-button:hover{
+    opacity: 75%;
+}
+
+#cta-button-center{
+    background-color: #0df259;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 5rem;
+    box-shadow: 0px 0px 20px 5px rgba(57, 81, 94, 0.18);
+}
+
+#cta-button-center:hover{
+    opacity: 75%;
+}
+
+#screen-border{
+    background-color: black;
+    padding: 1rem;
+    height: min-content;
+    width: 35vw;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0px 10px 30px 5px rgba(0, 0, 0, 0.5);
+    transform: translateY(5rem);
+}
+
+#monitor-stand{
+    content: "";
+    height: 4rem;
+    width: 10rem;
+    background-color: black;
+    transform: translate(12rem, 3rem);
+    box-shadow: 0px 10px 30px 5px rgba(0, 0, 0, 0.3);
+}
+
+#monitor-base{
+    content: "";
+    height: 1.5rem;
+    width: 20rem;
+    background-color: black;
+    transform: translate(7rem, 3rem);
+    border-radius: 1rem;
+}
+
+#block{
+    content: "";
+    height: 1rem;
+    width: 20rem;
+    background-color: black;
+    transform: translate(7rem, 2rem);
+    box-shadow: 0px 10px 30px 5px rgba(0, 0, 0, 0.3);
+}

@@ -4,25 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <link th:href="@{css/main.css}" rel="stylesheet"> 
     <link rel="stylesheet" href="/css/shared.css">
     <link rel="stylesheet" href="/css/arena.css">
     <script src="/js/arena.js" defer=""></script>
+
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,301,701,300,501,401,901,400,2&amp;display=swap" rel="stylesheet">
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/monokai.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/javascript/javascript.min.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="/imgs/W.svg">
+
     <title>Web Warriors</title>
 </head>
 <body>
+    <div id="popup" class="text-3xl">
+        Judging...
+    </div>
+    <div id="bg-cover"></div>
+
     <form th:action="@{/judge}" method="post" id="arena-container">
         <div>
-            <iframe id="preview"></iframe>
-            <div id="instructions">
-                <span> these are some</span>
-                <button id="submit-button" type="submit">Submit!</button>
+            <div id="screen-border">
+                <iframe id="preview"></iframe>
             </div>
+            <div id="instructions" class="mb-6 p-4">
+                <div th:if="${prediction}" class="mb-2">
+                    <div th:if="${prediction == 'Passed'}">
+                        <span style="color: #0df259" th:text="'Level ' + ${levelCount - 1} + ' ' + ${prediction} + '!'"></span>
+                    </div>
+                    <div th:unless="${prediction == 'Passed'}">
+                        <span style="color: #f20d0d" th:text="'Level ' + ${levelCount} + ' ' + ${prediction} + ' :(. Try again!'"></span>
+                    </div>
+                </div>
+
+                <div id="invis" th:text="${levelCount}"></div>
+
+                <div id="text-content"></div> <!--lesson-->
+
+                <div class="flex items-center">
+                    <button id="submit-button" onclick="showPopup()" type="submit">Submit Website!</button>
+                    <button type="button" onclick="prevText()" class="ml-auto mr-4 pagination-button">&#8592; Previous</button>
+                    <button type="button" onclick="nextText()" class="pagination-button">Next &#8594;</button>
+                </div>
+            </div>
+            <a href="/" id="home-button">Home</a>
+            <p id="level-title" class="text-3xl" th:text="'Level ' + ${levelCount} + ' - ' + ${levelName}"></p>
         </div>
-        <div>   
-            <textarea id="userHtml" name="userHtml" placeholder="HTML"></textarea>
-            <textarea id="userCss" name="userCss" placeholder="CSS"></textarea>
+        <div class="text-xl">   
+            <div class="flex code p-4">
+                <img src="imgs/file_type_html.svg" alt="SVG Image" width="30" height="30" class="mr-2"/>
+                <p>HTML</p>
+            </div>
+            <div class="fill"></div>
+            <textarea id="userHtml" name="userHtml" placeholder="Type your HTML here!" th:text="${oldHtml}"></textarea>
+            <div class="flex code p-4">
+                <img src="imgs/file_type_css.svg" alt="SVG Image" width="30" height="30" class="mr-2"/>
+                <p>CSS</p>
+            </div>
+            <div class="fill"></div>
+            <textarea id="userCss" name="userCss" placeholder="CSS" th:text="${oldCss}"></textarea>
         </div>
     </form>
+
+
+      
 </body>
 </html>
